@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MapController : MonoBehaviour
 {
@@ -28,8 +29,6 @@ public class MapController : MonoBehaviour
         playerX = playerTransform.position.x;
         playerY = playerTransform.position.z;
 
-        Debug.Log(mapPointer.rectTransform.position.x);
-        Debug.Log(mapPointer.rectTransform.position.y);
         
         pointerX = (playerX / 4) + 7.5f;
         pointerY = (playerY / 4) + 7.5f;
