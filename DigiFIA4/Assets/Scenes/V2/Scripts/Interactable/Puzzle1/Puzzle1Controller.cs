@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Puzzle1Controller : MonoBehaviour
 {
-    public bool gameWon;
-
+    public bool correctDoor;
     public TextMeshProUGUI directionText;
     private int escCount;
 
@@ -21,32 +20,32 @@ public class Puzzle1Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) { escCount++; }
-
-        if(escCount == 0)
-        {
-            directionText.text = "Welcome stranger... choose wisley, for the path to your future awaits behind one of these doors... [next 'Esc']";
-        } else if(escCount == 1)
-        {
-            directionText.text = "If the wrong door you should choose... [next 'Esc']";
-        } else if(escCount == 2)
-        {
-            directionText.text = "Well, i guess you'll just have to find out... ['Esc']";
-        } else
-        {
-            directionText.text = "";
-        }
+        if (Input.GetKeyDown(KeyCode.Escape) || correctDoor) { escCount++; }
 
         
 
-        if (gameWon)
-        {
-            endPuzzle1();
-        }
+        if(correctDoor) { endPuzzle1(); }
+
+       
     }
 
     public void endPuzzle1()
     {
-
+        if (escCount == 0)
+        {
+            directionText.text = "Well done traveller... you have choosen wisley... [next 'Esc']";
+        }
+        else if (escCount == 1)
+        {
+            directionText.text = "I see you saw that it is night, thus no sunlight to magnify... [next 'Esc']";
+        }
+        else if (escCount == 2)
+        {
+            directionText.text = "of course you might have t... ['Esc']";
+        }
+        else
+        {
+            directionText.text = "";
+        }
     }
 }
