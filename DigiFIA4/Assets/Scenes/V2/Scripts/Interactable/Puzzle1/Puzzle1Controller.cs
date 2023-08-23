@@ -22,11 +22,10 @@ public class Puzzle1Controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) || correctDoor) { escCount++; }
 
-        
 
-        if(correctDoor) { endPuzzle1(); }
 
-       
+        if (correctDoor) { endPuzzle1(); }
+
     }
 
     public void endPuzzle1()
