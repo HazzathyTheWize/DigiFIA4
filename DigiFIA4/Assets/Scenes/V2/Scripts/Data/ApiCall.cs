@@ -16,8 +16,8 @@ public class ApiCall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(APICallCat("catfact.ninja/fact"));
-        StartCoroutine(APICallRiddle("https://riddles-api.vercel.app/random"));
+        //StartCoroutine(APICallCat("catfact.ninja/fact"));
+        //StartCoroutine(APICallRiddle("https://riddles-api.vercel.app/random"));
     }
 
     // Update is called once per frame
@@ -44,9 +44,9 @@ public class ApiCall : MonoBehaviour
 
     }
 
-    private IEnumerator APICallRiddle(string url)
+    public IEnumerator APICallRiddle()
     {
-        var www = UnityWebRequest.Get(url);
+        var www = UnityWebRequest.Get("https://riddles-api.vercel.app/random");
 
         yield return www.SendWebRequest();
 
