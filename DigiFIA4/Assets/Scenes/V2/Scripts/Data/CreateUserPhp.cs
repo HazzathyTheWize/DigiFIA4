@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CreateUserPhp : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class CreateUserPhp : MonoBehaviour
     public TMP_InputField passwordField;
     public TMP_InputField passwordFieldC;
     public TextMeshProUGUI TextBox;
+
+    private bool loggedIn;
 
     public void CreateUserSubmit()
     {
@@ -30,6 +33,17 @@ public class CreateUserPhp : MonoBehaviour
 
         }
 
+    }
+
+    private void Update()
+    {
+
+        if (loggedIn)
+        {
+            TweenData.puzzle1Completed = false;
+            TweenData.puzzle2Completed = false;
+            SceneManager.LoadScene(1);
+        }
     }
 
     IEnumerator CreateUser(string email, string username, string password)
@@ -49,6 +63,7 @@ public class CreateUserPhp : MonoBehaviour
             Debug.Log(www.error);
         } else
         {
+            loggedIn = true;
             TextBox.text = "User creation succesful";
         }
     }

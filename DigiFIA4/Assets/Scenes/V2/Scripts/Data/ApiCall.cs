@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -12,6 +13,8 @@ public class ApiCall : MonoBehaviour
     public RandomRiddle randomRiddleClass;
     public string randomRiddle;
     public string randomAnswer;
+
+    public TextMeshProUGUI bookText;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +62,8 @@ public class ApiCall : MonoBehaviour
 
         Debug.Log(randomRiddle);
         Debug.Log(randomAnswer);
+
+        bookText.text = randomRiddle;
 
     }
 }

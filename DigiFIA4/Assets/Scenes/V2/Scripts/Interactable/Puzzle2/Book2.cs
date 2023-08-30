@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Book1 : Interactable
+public class Book2 : Interactable
 {
     public GameObject bookScreen;
     private bool bookOpen;
@@ -13,6 +13,7 @@ public class Book1 : Interactable
     private Vector3 bookPos;
     public Camera mainCam;
 
+    public ApiCall apiCaller;
 
     private void Start()
     {
@@ -20,23 +21,24 @@ public class Book1 : Interactable
         bookTransform = bookScreen.GetComponent<Transform>();
         bookPos = bookTransform.position;
         bookScreen.SetActive(false);
-       
+
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             bookScreen.SetActive(false);
             bookOpen = false;
         }
 
-       
+
     }
 
     protected override void Interact()
     {
 
+        StartCoroutine(apiCaller.APICallRiddle());
         bookOpen = true;
 
         if (bookOpen)
@@ -45,7 +47,7 @@ public class Book1 : Interactable
             Debug.Log("open");
         }
 
-        
+
 
     }
 }

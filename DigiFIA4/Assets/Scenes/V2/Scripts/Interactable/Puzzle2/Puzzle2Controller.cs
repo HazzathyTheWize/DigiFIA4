@@ -1,27 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEditor.Rendering;
 
 public class Puzzle2Controller : MonoBehaviour
 {
-    public ApiCall apiCaller;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.B)) 
+        {
+            TweenData.puzzle2Completed = false;
+            SceneManager.LoadScene(1);
+        }
+
+       
     }
 
-    public void GenerateRiddle()
-    {
-        StartCoroutine(apiCaller.APICallRiddle());
-    }
+    
 
 }
